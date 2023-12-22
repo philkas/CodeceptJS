@@ -460,6 +460,12 @@ describe('Playwright', function () {
       await I.click('Submit');
       assert.equal(formContents('age'), 'adult');
     });
+    it('should select option by value', async () => {
+      await I.amOnPage('/form/select');
+      await I.selectOption('Select your age', 'adult');
+      await I.click('Submit');
+      assert.equal(formContents('age'), 'adult');  
+    })
   });
 
   describe('#_locateClickable', () => {
